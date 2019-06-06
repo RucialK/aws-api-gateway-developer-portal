@@ -44,11 +44,19 @@ Parameters:
     Type: String
     Description: The S3 bucket in which the Open API documents are stored. Bucket
       names are globally unique, so you must change this.
+    MaxLength: 63
+    MinLength: 3
+    AllowedPattern: ^[a-z0-9]+(?:.[a-z0-9-]*)*[a-z0-9]+$
+    ConstraintDescription: Malformed input - Parameter ArtifactsS3BucketName must contain only lower case letters, numbers, hyphens and periods. It must also start with a lower case letter or number.
 
   DevPortalSiteS3BucketName:
     Type: String
     Description: The S3 bucket in which the web application code is stored. Bucket
       names are globally unique, so you must change this.
+    MaxLength: 63
+    MinLength: 3
+    AllowedPattern: ^[a-z0-9]+(?:.[a-z0-9-]*)*[a-z0-9]+$
+    ConstraintDescription: Malformed input - Parameter DevPortalSiteS3BucketName must contain only lower case letters, numbers, hyphens and periods. It must also start with a lower case letter or number.
 
   DevPortalCustomersTableName:
     Type: String
@@ -111,6 +119,7 @@ Parameters:
     AllowedValues: 
       - 'false'
       - 'true'
+    ConstraintDescription: Malformed input - Parameter UseRoute53Nameservers value must be either 'true' or 'false'
 
   DevelopmentMode:
     Type: String
@@ -119,6 +128,7 @@ Parameters:
     AllowedValues: 
       - 'false'
       - 'true'
+    ConstraintDescription: Malformed input - Parameter DevelopmentMode value must be either 'true' or 'false'
 
 Conditions:
   UseCustomDomainName: !And [!And [!Not [!Equals [!Ref CustomDomainName, '']], !Not [!Equals [!Ref CustomDomainNameAcmCertArn, '']]], !Condition NotDevelopmentMode]
