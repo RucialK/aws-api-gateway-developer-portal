@@ -107,6 +107,8 @@ Parameters:
     Type: String
     Description: The name for your Cognito Identity Pool.
     Default: 'DevPortalIdentityPool'
+    MaxLength: 128
+    AllowedPattern: ^[a-zA-Z0-9-+=.@]*$
 
   CognitoDomainNameOrPrefix:
     Type: String
