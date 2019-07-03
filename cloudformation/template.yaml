@@ -98,6 +98,8 @@ Parameters:
     Type: String
     Description: Optionally provide a custom domain name associated with an ACM cert to create a developer portal at that domain name (provide with the format foo.bar.net). Leave blank to create a developer portal without a custom domain name. Standing up a developer portal stack with a custom domain name will take significantly longer than without.
     Default: ''
+    AllowedPattern: ^$|^@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+    ConstraintDescription: Malformed input - Parameter CognitoDomainNameOrPrefix must be between one and 63 characters long. It can contain lowercase letters (a-z), numbers (0-9) or a hyphen but must start and end with a lower case letter.
 
   CustomDomainNameAcmCertArn:
     Type: String
